@@ -53,6 +53,15 @@ namespace Store.Infrastructure.Data
                 user.Property(p => p.CreatedAt).HasDefaultValue(DateTime.Now);
                 user.Property(p => p.IsDeleted).HasDefaultValue(false);
             }).HasDefaultSchema("Security");
+
+            builder.Entity<Product>(product =>
+            {
+                product.Property(product => product.Price).HasColumnType("decimal");
+                product.Property(product => product.Price).HasPrecision(18);
+                product.Property(product => product.IsDeleted).HasDefaultValue(false);
+                product.Property(product => product.CreatedAt).HasDefaultValue(DateTime.Now);
+                product.Property(product => product.ModifyAt).HasDefaultValue(DateTime.Now);
+            });
         }
     }
 }
