@@ -1,2 +1,2 @@
-# bne-test-fullstack-be
-Web FullStack Test
+# venezuela-xtrema-store-be
+Venezuewla Xtrema Store BackEnd
