@@ -78,6 +78,8 @@ namespace Store.Infrastructure.Migrations
                     table.PrimaryKey("PK_Products", x => x.ProductId);
                 });
 
+            // Seed here.   
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 schema: "Security",

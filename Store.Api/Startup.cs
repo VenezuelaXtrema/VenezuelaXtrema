@@ -32,6 +32,7 @@ namespace Store.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Store.Api", Version = "v1" });
+
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,
@@ -63,10 +64,11 @@ namespace Store.Api
                 o.DefaultApiVersion = new ApiVersion(1, 0);
                 o.ApiVersionReader = new HeaderApiVersionReader("x-api-version");
             });
-            services.ConfigureSwaggerGen(options =>
-            {
-                options.IncludeXmlComments(AppContext.BaseDirectory + this.Configuration["Swagger:Path"]);
-            });
+
+            //services.ConfigureSwaggerGen(options =>
+            //{
+            //    options.IncludeXmlComments(AppContext.BaseDirectory + this.Configuration["Swagger:Path"]);
+            //});
             // services.AddScoped<ITokenService, TokenService>();
             // services.AddAutoMapper(typeof(Startup));
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);

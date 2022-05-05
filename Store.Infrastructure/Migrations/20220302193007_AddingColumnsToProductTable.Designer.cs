@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Store.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using Store.Infrastructure.Data;
 namespace Store.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220302193007_AddingColumnsToProductTable")]
+    partial class AddingColumnsToProductTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,61 +113,50 @@ namespace Store.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", "Security");
                 });
 
-            modelBuilder.Entity("Store.Domain.Entities.Products.Products", b =>
+            modelBuilder.Entity("Store.Domain.Entities.Product.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnOrder(0);
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 3, 2, 16, 1, 21, 79, DateTimeKind.Local).AddTicks(4558))
-                        .HasColumnOrder(4);
+                        .HasDefaultValue(new DateTime(2022, 3, 2, 15, 30, 6, 854, DateTimeKind.Local).AddTicks(635));
 
                     b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnOrder(6);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnOrder(2);
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(false)
-                        .HasColumnOrder(8);
+                        .HasDefaultValue(false);
 
                     b.Property<DateTime>("ModifyAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 3, 2, 16, 1, 21, 79, DateTimeKind.Local).AddTicks(4699))
-                        .HasColumnOrder(5);
+                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("ModifyBy")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnOrder(7);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(85)
-                        .HasColumnType("nvarchar(85)")
-                        .HasColumnOrder(1);
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<decimal>("Price")
                         .HasPrecision(18)
-                        .HasColumnType("decimal(18)")
-                        .HasColumnOrder(3);
+                        .HasColumnType("decimal(18)");
 
                     b.HasKey("ProductId");
 
-                    b.ToTable("Products", "Products");
+                    b.ToTable("Product", "Products");
                 });
 
             modelBuilder.Entity("Store.Domain.Entities.User.Role", b =>
@@ -181,7 +172,7 @@ namespace Store.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 3, 2, 16, 1, 21, 79, DateTimeKind.Local).AddTicks(2959));
+                        .HasDefaultValue(new DateTime(2022, 3, 2, 15, 30, 6, 853, DateTimeKind.Local).AddTicks(9090));
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -232,7 +223,7 @@ namespace Store.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 3, 2, 16, 1, 21, 79, DateTimeKind.Local).AddTicks(3826));
+                        .HasDefaultValue(new DateTime(2022, 3, 2, 15, 30, 6, 853, DateTimeKind.Local).AddTicks(9836));
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
@@ -313,7 +304,7 @@ namespace Store.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 3, 2, 16, 1, 21, 79, DateTimeKind.Local).AddTicks(2203));
+                        .HasDefaultValue(new DateTime(2022, 3, 2, 15, 30, 6, 853, DateTimeKind.Local).AddTicks(8260));
 
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
